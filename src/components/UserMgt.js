@@ -10,8 +10,8 @@ export default class UserMgt extends React.Component {
         <input type="text" placeholder="ユーザー名" onChange={(e) => this.props.inputUser(e.target.value)} />
         <input type="text" placeholder="パスワード" onChange={(e) => this.props.inputPass(e.target.value)} />
         <input type="text" placeholder="画像URL" onChange={(e) => this.props.inputImgUrl(e.target.value)} />
-        <Link to="/posts">{<input type="button" value="登録ボタン！" onClick={() => this.props.addUser(this.props.user, this.props.pass, this.props.imgUrl)
-        } />}</Link>
+        <input type="button" value="登録ボタン！" onClick={() => this.props.addUser(this.props.user, this.props.pass, this.props.imgUrl)
+        } />
 
         <h2>ユーザー一覧</h2>
         <ul>
@@ -27,6 +27,8 @@ export default class UserMgt extends React.Component {
             })
           }
         </ul>
+        <Link to="/posts">{<input type="button" value="チャット！" />}</Link>
+        <Link to="/user_mgt">{<input type="button" value="ユーザー管理！" />}</Link>
       </div>
     );
   }

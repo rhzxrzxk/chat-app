@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropType from 'prop-types';
 
 export default class Post extends React.Component {
@@ -18,7 +19,8 @@ export default class Post extends React.Component {
             })
           }
         </ul>
-
+        <Link to="/posts">{<input type="button" value="チャット！" />}</Link>
+        <Link to="/user_mgt">{<input type="button" value="ユーザー管理！" />}</Link>
       </div>
     );
   }

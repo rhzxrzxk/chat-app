@@ -3,7 +3,7 @@ import UserMgt from '../components/UserMgt';
 import * as actions from '../actions/UserMgt';
 
 const mapStateToProps = (state) => ({
-  user: state.user_.user,
+  user: state.user_mgt.user,
   pass: state.user_mgt.pass,
   imgUrl: state.user_mgt.imgUrl,
   users: state.user_mgt.users,

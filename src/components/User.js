@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropType from 'prop-types';
 
 export default class User extends React.Component {
@@ -36,21 +36,3 @@ export default class User extends React.Component {
     );
   }
 }
-
-{/*
-  <input type="text" placeholder="ユーザー名" />
-  <input type="text" placeholder="パスワード" />
-  <input type="text" placeholder="画像URL" />
-
-
-  <h2>ログイン</h2>
-  <input type="text" placeholder="ユーザー名" />
-  <input type="text" placeholder="パスワード" />
-  <input type="text" placeholder="画像URL" />
-  <Link to="/posts">ログイン！</Link>
-
-
-  <Link to="/posts">登録URL！</Link>
-
-  <Route path="/posts" component={User} />
-*/}
