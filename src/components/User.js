@@ -17,21 +17,6 @@ export default class User extends React.Component {
         <input type="text" placeholder="ユーザー名" onChange={(e) => this.props.inputUser(e.target.value)} />
         <input type="text" placeholder="パスワード" onChange={(e) => this.props.inputPass(e.target.value)} />
         <Link to="/posts">{<input type="button" value="ログインボタン！" />}</Link>
-
-        <h2>ユーザー一覧</h2>
-        <ul>
-          {
-            this.props.users.map(function(item, i) {
-              return (
-                <div>
-                  <li key={i}>ユーザー名：{item["user"]}</li>
-                  <li key={i}>パスワード：{item["pass"]}</li>
-                  <li key={i}>画像URL：{item["imgUrl"]}</li>
-                </div>
-              )
-            })
-          }
-        </ul>
       </div>
     );
   }
