@@ -1,4 +1,5 @@
 const initialState = {
+  loginStatus: '0',
   user: '',
   pass: '',
   imgUrl: '',
@@ -25,10 +26,17 @@ export default (state = initialState, action) => {
         imgUrl: action.payload.imgUrl
       };
 
-    case 'ADD_USER':
+    case 'DENY_RESISTRATION':
       return {
         ...state,
-        users: state.users.concat([{"user":action.payload.user, "pass":action.payload.pass, "imgUrl":action.payload.imgUrl}])
+        loginStatus: '0'
+      };
+
+    case 'ALLOW_RESISTRATION':
+      return {
+        ...state,
+        users: state.users.concat([{"user":action.payload.user, "pass":action.payload.pass, "imgUrl":action.payload.imgUrl}]),
+        loginStatus: '1'
       };
 
     default:

@@ -3,6 +3,7 @@ import User from '../components/User';
 import * as actions from '../actions/User';
 
 const mapStateToProps = (state) => ({
+  loginStatus: state.user.loginStatus,
   user: state.user.user,
   pass: state.user.pass,
   imgUrl: state.user.imgUrl,
@@ -19,8 +20,23 @@ const mapDispatchToProps = dispatch => ({
   inputImgUrl(imgUrl) {
     dispatch(actions.inputImgUrl(imgUrl));
   },
-  addUser(user, pass, imgUrl) {
-    dispatch(actions.addUser(user, pass, imgUrl));
+  addUser(user, pass, imgUrl, users) {
+    const existing = (p, ps) => {
+      let bool
+      for (var i=0; i<ps.length; i++) {
+        if (ps[i]["user"] === p) {
+          bool = true;
+          break;
+        }
+        bool = false;
+      }
+      return bool;
+    }
+    if (existing(user, users) == true) {
+      dispatch(actions.denyRegistration());
+    } else {
+      dispatch(actions.allowRegistration(user, pass, imgUrl));
+    }
   }
 });
 

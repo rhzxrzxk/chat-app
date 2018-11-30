@@ -19,9 +19,15 @@ export const inputImgUrl = (imgUrl) => ({
   }
 });
 
-export const addUser = (user, pass, imgUrl) => (
+export const denyRegistration = () => (
   {
-  type: 'ADD_USER',
+  type: 'DENY_RESISTRATION',
+  payload: {}
+});
+
+export const allowRegistration = (user, pass, imgUrl) => (
+  {
+  type: 'ALLOW_RESISTRATION',
   payload: {
     user,
     pass,
