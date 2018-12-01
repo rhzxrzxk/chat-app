@@ -51,7 +51,7 @@ const mapDispatchToProps = dispatch => ({
       return bool;
     }
     if (existing(user, pass, users) == true) {
-      dispatch(actions.allowLogin());
+      dispatch(actions.allowLogin(user));
     } else {
       dispatch(actions.denyLogin());
     }

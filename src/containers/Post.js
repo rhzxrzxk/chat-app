@@ -4,7 +4,8 @@ import * as actions from '../actions/Post';
 
 const mapStateToProps = (state) => ({
   post: state.post.post,
-  posts: state.post.posts
+  posts: state.post.posts,
+  currentUser: state.user.currentUser,
 });
 
 const mapDispatchToProps = dispatch => ({

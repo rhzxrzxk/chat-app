@@ -31,14 +31,16 @@ export const allowRegistration = (user, pass, imgUrl) => (
   payload: {
     user,
     pass,
-    imgUrl
+    imgUrl,
   }
 });
 
-export const allowLogin = () => (
+export const allowLogin = (user) => (
   {
   type: 'ALLOW_LOGIN',
-  payload: {}
+  payload: {
+    user,
+  }
 });
 
 export const denyLogin = () => (
