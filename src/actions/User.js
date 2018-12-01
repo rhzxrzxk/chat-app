@@ -34,3 +34,15 @@ export const allowRegistration = (user, pass, imgUrl) => (
     imgUrl
   }
 });
+
+export const allowLogin = () => (
+  {
+  type: 'ALLOW_LOGIN',
+  payload: {}
+});
+
+export const denyLogin = () => (
+  {
+  type: 'DENY_LOGIN',
+  payload: {}
+});

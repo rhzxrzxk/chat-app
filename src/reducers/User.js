@@ -39,6 +39,18 @@ export default (state = initialState, action) => {
         loginStatus: '1'
       };
 
+    case 'ALLOW_LOGIN':
+      return {
+        ...state,
+        loginStatus: '1'
+      };
+
+    case 'DENY_LOGIN':
+      return {
+        ...state,
+        loginStatus: '0'
+      };
+
     default:
       return state;
   }

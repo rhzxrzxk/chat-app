@@ -37,6 +37,24 @@ const mapDispatchToProps = dispatch => ({
     } else {
       dispatch(actions.allowRegistration(user, pass, imgUrl));
     }
+  },
+  loginUser(user, pass, users) {
+    const existing = (p, q, ps) => {
+      let bool
+      for (var i=0; i<ps.length; i++) {
+        if (ps[i]["user"] === p && ps[i]["pass"] === q) {
+          bool = true;
+          break;
+        }
+        bool = false;
+      }
+      return bool;
+    }
+    if (existing(user, pass, users) == true) {
+      dispatch(actions.allowLogin());
+    } else {
+      dispatch(actions.denyLogin());
+    }
   }
 });
 
