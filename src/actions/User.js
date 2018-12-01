@@ -48,3 +48,9 @@ export const denyLogin = () => (
   type: 'DENY_LOGIN',
   payload: {}
 });
+
+export const logout = () => (
+  {
+  type: 'LOGOUT',
+  payload: {}
+});
