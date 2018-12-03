@@ -13,8 +13,8 @@ const mapDispatchToProps = dispatch => ({
   inputPost(post) {
     dispatch(actions.inputPost(post));
   },
-  addPost(post) {
-    dispatch(actions.addPost(post));
+  addPost(post, currentUser) {
+    dispatch(actions.addPost(post, currentUser));
   }
 });
 

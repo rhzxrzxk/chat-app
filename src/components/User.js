@@ -14,7 +14,7 @@ export default class User extends React.Component {
   render() {
     return(
       <div>
-        <h2>新規</h2>
+        <h2>新規登録</h2>
         <input type="text" placeholder="ユーザー名" onChange={(e) => this.props.inputUser(e.target.value)} />
         <input type="text" placeholder="パスワード" onChange={(e) => this.props.inputPass(e.target.value)} />
         <input type="file" onChange={this.handleChangeFile} />

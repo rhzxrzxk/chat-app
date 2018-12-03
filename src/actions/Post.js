@@ -5,10 +5,11 @@ export const inputPost = (post) => ({
   }
 });
 
-export const addPost = (post) => (
+export const addPost = (post, currentUser) => (
   {
   type: 'ADD_POST',
   payload: {
-    post
+    post,
+    currentUser
   }
 });

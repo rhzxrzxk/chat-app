@@ -1,6 +1,6 @@
 const initialState = {
   post: '',
-  posts: []
+  posts: [{"post":'', "currentUser":''}]
 };
 
 export default (state = initialState, action) => {
@@ -14,7 +14,8 @@ export default (state = initialState, action) => {
     case 'ADD_POST':
       return {
         ...state,
-        posts: state.posts.concat([action.payload.post])
+        posts: state.posts.concat([{"post":action.payload.post, "currentUser":action.payload.currentUser}]),
+        post: '',
       };
 
     default:

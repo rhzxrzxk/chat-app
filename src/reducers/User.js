@@ -40,6 +40,9 @@ export default (state = initialState, action) => {
         users: state.users.concat([{"user":action.payload.user, "pass":action.payload.pass, "imgFile":action.payload.imgFile}]),
         loginStatus: '1',
         currentUser: action.payload.user,
+        user: '',
+        pass: '',
+        imgFile: '',
       };
 
     case 'ALLOW_LOGIN':
@@ -47,6 +50,9 @@ export default (state = initialState, action) => {
         ...state,
         loginStatus: '1',
         currentUser: action.payload.user,
+        user: '',
+        pass: '',
+        imgFile: '',
       };
 
     case 'DENY_LOGIN':

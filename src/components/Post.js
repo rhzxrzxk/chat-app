@@ -10,14 +10,14 @@ export default class Post extends React.Component {
         <h2>投稿する</h2>
         <img src={this.props.imgFile} width="128" height="128"/>
         <h3>{this.props.currentUser}</h3>
-        <input type="text" onChange={(e) => this.props.inputPost(e.target.value)} />
-        <input type="button" value="投稿" onClick={() => this.props.addPost(this.props.post)
+        <input type="text" value={this.props.post} onChange={(e) => this.props.inputPost(e.target.value)} />
+        <input type="button" value="投稿" onClick={() => this.props.addPost(this.props.post, this.props.currentUser)
         } />
         <h2>投稿一覧</h2>
         <ul>
           {
             this.props.posts.map(function(item, i) {
-              return (<li key={i}>{item}</li>)
+              return (<li key={i}>{["投稿：", item["post"], "：投稿者：", item["currentUser"]]}</li>)
             })
           }
         </ul>
