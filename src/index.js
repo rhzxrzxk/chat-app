@@ -12,10 +12,6 @@ import App from './App';
 const history = createBrowserHistory();
 const store = createStore(history);
 
-console.log("ログを吐く");
-console.log(store.getState());
-console.log("ログを吐いた");
-
 ReactDOM.render(
   //Providerを用いて、ストアをReactのcontextに渡す。
   <Provider store={store}>

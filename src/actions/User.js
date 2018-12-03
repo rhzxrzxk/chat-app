@@ -1,3 +1,10 @@
+export const inputImgFile = (imgFile) => ({
+  type: 'INPUT_IMGFILE',
+  payload: {
+    imgFile
+  }
+});
+
 export const inputUser = (user) => ({
   type: 'INPUT_USER',
   payload: {
@@ -12,26 +19,21 @@ export const inputPass = (pass) => ({
   }
 });
 
-export const inputImgUrl = (imgUrl) => ({
-  type: 'INPUT_IMGURL',
-  payload: {
-    imgUrl
-  }
-});
-
 export const denyRegistration = () => (
   {
   type: 'DENY_RESISTRATION',
-  payload: {}
+  payload: {
+
+  }
 });
 
-export const allowRegistration = (user, pass, imgUrl) => (
+export const allowRegistration = (user, pass, imgFile) => (
   {
   type: 'ALLOW_RESISTRATION',
   payload: {
     user,
     pass,
-    imgUrl,
+    imgFile,
   }
 });
 

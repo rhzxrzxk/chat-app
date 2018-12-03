@@ -8,7 +8,7 @@ export default class Post extends React.Component {
     return(
       <div>
         <h2>投稿する</h2>
-        <h3>プロフィール画像</h3>
+        <img src={this.props.imgFile} width="128" height="128"/>
         <h3>{this.props.currentUser}</h3>
         <input type="text" onChange={(e) => this.props.inputPost(e.target.value)} />
         <input type="button" value="投稿" onClick={() => this.props.addPost(this.props.post)

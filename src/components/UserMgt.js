@@ -9,7 +9,7 @@ export default class UserMgt extends React.Component {
         <h2>新規登録</h2>
         <input type="text" placeholder="ユーザー名" onChange={(e) => this.props.inputUser(e.target.value)} />
         <input type="text" placeholder="パスワード" onChange={(e) => this.props.inputPass(e.target.value)} />
-        <input type="text" placeholder="画像URL" onChange={(e) => this.props.inputImgUrl(e.target.value)} />
+        <input type="text" placeholder="画像ファイル" onChange={(e) => this.props.inputImgFile(e.target.value)} />
         <input type="button" value="新規登録" onClick={() => this.props.addUser(this.props.user, this.props.pass, this.props.imgUrl)
         } />
 
@@ -21,7 +21,7 @@ export default class UserMgt extends React.Component {
                 <div>
                   <li key={i}>ユーザー名：{item["user"]}</li>
                   <li key={i}>パスワード：{item["pass"]}</li>
-                  <li key={i}>画像URL：{item["imgUrl"]}</li>
+                  <li key={i}>画像ファイル：{item["imgFile"]}</li>
                 </div>
               )
             })

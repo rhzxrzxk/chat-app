@@ -6,6 +6,7 @@ const mapStateToProps = (state) => ({
   post: state.post.post,
   posts: state.post.posts,
   currentUser: state.user.currentUser,
+  imgFile:state.user.imgFile,
 });
 
 const mapDispatchToProps = dispatch => ({

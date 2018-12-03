@@ -2,8 +2,8 @@ const initialState = {
   loginStatus: '0',
   user: '',
   pass: '',
-  imgUrl: '',
-  users: [{"user":'', "pass":'', "imgUrl":''}],
+  imgFile: '',
+  users: [{"user":'', "pass":'', "imgFile":''}],
   currentUser: ''
 };
 
@@ -21,10 +21,10 @@ export default (state = initialState, action) => {
         pass: action.payload.pass
       };
 
-    case 'INPUT_IMGURL':
+    case 'INPUT_IMGFILE':
       return {
         ...state,
-        imgUrl: action.payload.imgUrl
+        imgFile: action.payload.imgFile
       };
 
     case 'DENY_RESISTRATION':
@@ -37,7 +37,7 @@ export default (state = initialState, action) => {
     case 'ALLOW_RESISTRATION':
       return {
         ...state,
-        users: state.users.concat([{"user":action.payload.user, "pass":action.payload.pass, "imgUrl":action.payload.imgUrl}]),
+        users: state.users.concat([{"user":action.payload.user, "pass":action.payload.pass, "imgFile":action.payload.imgFile}]),
         loginStatus: '1',
         currentUser: action.payload.user,
       };

@@ -6,21 +6,21 @@ const mapStateToProps = (state) => ({
   loginStatus: state.user.loginStatus,
   user: state.user.user,
   pass: state.user.pass,
-  imgUrl: state.user.imgUrl,
   users: state.user.users,
+  imgFile: state.user.imgFile,
 });
 
 const mapDispatchToProps = dispatch => ({
+  inputImgFile(imgFile) {
+    dispatch(actions.inputImgFile(imgFile));
+  },
   inputUser(user) {
     dispatch(actions.inputUser(user));
   },
   inputPass(pass) {
     dispatch(actions.inputPass(pass));
   },
-  inputImgUrl(imgUrl) {
-    dispatch(actions.inputImgUrl(imgUrl));
-  },
-  addUser(user, pass, imgUrl, users) {
+  addUser(user, pass, imgFile, users) {
     const existing = (p, ps) => {
       let bool
       for (var i=0; i<ps.length; i++) {
@@ -35,7 +35,7 @@ const mapDispatchToProps = dispatch => ({
     if (existing(user, users) == true) {
       dispatch(actions.denyRegistration());
     } else {
-      dispatch(actions.allowRegistration(user, pass, imgUrl));
+      dispatch(actions.allowRegistration(user, pass, imgFile));
     }
   },
   loginUser(user, pass, users) {
