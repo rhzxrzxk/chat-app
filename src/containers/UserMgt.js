@@ -10,6 +10,10 @@ const mapStateToProps = (state) => ({
   users: state.user.users,
   currentUser: state.user.currentUser,
   loginStatus: state.user.loginStatus,
+  userMsg: state.user.userMsg,
+  userValidation: state.user.userValidation,
+  passMsg: state.user.passMsg,
+  passValidation: state.user.passValidation
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -33,26 +37,27 @@ const mapDispatchToProps = dispatch => ({
       dispatch(actions.deleteOthers(nextUsers));
     }
   },
-  addUser(user, pass, imgFile, users) {
+  addUser(user, pass, imgFile, users, userMsg, passMsg, userValidation, passValidation) {
     const existing = (p, ps) => {
-      let bool
+      let eBool
       for (var i=0; i<ps.length; i++) {
         if (ps[i]["user"] === p) {
-          bool = true;
+          eBool = true;
           break;
         }
-        bool = false;
+        eBool = false;
       }
-      return bool;
+      return eBool;
     }
-    if (existing(user, users) === true) {
-      dispatch(actions.denyRegistration());
-    } else {
+
+    if (existing(user, users) == false && userValidation == false && passValidation == false) {
       var m = moment();
       var mf = m.format("YYYY/MM/DD HH:mm");
       dispatch(actions.allowRegistration(user, pass, imgFile, mf));
+    } else {
+      dispatch(actions.denyRegistration());
     }
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserMgt);

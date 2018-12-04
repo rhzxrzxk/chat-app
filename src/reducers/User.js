@@ -4,21 +4,49 @@ const initialState = {
   pass: '',
   imgFile: '',
   users: [{"user":'', "pass":'', "imgFile":''}],
-  currentUser: ''
+  currentUser: '',
+  userMsg: '',
+  passMsg: '',
+  userValidation: true,
+  passValidation: true,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'INPUT_USER':
+      var u = action.payload.user;
+      var uv;
+      var um = '';
+      if (u.length>0 && u.length<11) {
+        um = '';
+        uv = false;
+      } else {
+        um = 'ユーザー名は1〜10文字でないといけません！';
+        uv = true;
+      };
       return {
         ...state,
-        user: action.payload.user
+        user: action.payload.user,
+        userMsg: um,
+        userValidation: uv,
       };
 
     case 'INPUT_PASS':
+      var p = action.payload.pass;
+      var pv;
+      var pm = '';
+      if (p.length>3 && p.length<9) {
+        pm = '';
+        pv = false;
+      } else {
+        pm = 'パスワードは4〜8文字でないといけません！';
+        pv = true;
+      };
       return {
         ...state,
-        pass: action.payload.pass
+        pass: action.payload.pass,
+        passMsg: pm,
+        passValidation: pv,
       };
 
     case 'INPUT_IMGFILE':
@@ -32,6 +60,10 @@ export default (state = initialState, action) => {
         ...state,
         loginStatus: '0',
         currentUser: '',
+        userMsg: '',
+        userValidation: true,
+        passMsg: '',
+        passValidation: true,
       };
 
     case 'ALLOW_RESISTRATION':
@@ -43,6 +75,10 @@ export default (state = initialState, action) => {
         user: '',
         pass: '',
         imgFile: '',
+        userMsg: '',
+        userValidation: true,
+        passMsg: '',
+        passValidation: true,
       };
 
     case 'ALLOW_LOGIN':

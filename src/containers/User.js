@@ -9,6 +9,10 @@ const mapStateToProps = (state) => ({
   pass: state.user.pass,
   users: state.user.users,
   imgFile: state.user.imgFile,
+  userMsg: state.user.userMsg,
+  userValidation: state.user.userValidation,
+  passMsg: state.user.passMsg,
+  passValidation: state.user.passValidation
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -21,24 +25,25 @@ const mapDispatchToProps = dispatch => ({
   inputPass(pass) {
     dispatch(actions.inputPass(pass));
   },
-  addUser(user, pass, imgFile, users) {
+  addUser(user, pass, imgFile, users, userMsg, passMsg, userValidation, passValidation) {
     const existing = (p, ps) => {
-      let bool
+      let eBool
       for (var i=0; i<ps.length; i++) {
         if (ps[i]["user"] === p) {
-          bool = true;
+          eBool = true;
           break;
         }
-        bool = false;
+        eBool = false;
       }
-      return bool;
+      return eBool;
     }
-    if (existing(user, users) == true) {
-      dispatch(actions.denyRegistration());
-    } else {
+
+    if (existing(user, users) == false && userValidation == false && passValidation == false) {
       var m = moment();
       var mf = m.format("YYYY/MM/DD HH:mm");
       dispatch(actions.allowRegistration(user, pass, imgFile, mf));
+    } else {
+      dispatch(actions.denyRegistration());
     }
   },
   loginUser(user, pass, users) {
@@ -53,7 +58,7 @@ const mapDispatchToProps = dispatch => ({
       }
       return bool;
     }
-    if (existing(user, pass, users) == true) {
+    if (existing(user, pass, users) === true) {
       dispatch(actions.allowLogin(user));
     } else {
       dispatch(actions.denyLogin());
