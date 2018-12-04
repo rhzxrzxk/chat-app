@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import User from '../components/User';
 import * as actions from '../actions/User';
+import moment from 'moment';
 
 const mapStateToProps = (state) => ({
   loginStatus: state.user.loginStatus,
@@ -35,7 +36,9 @@ const mapDispatchToProps = dispatch => ({
     if (existing(user, users) == true) {
       dispatch(actions.denyRegistration());
     } else {
-      dispatch(actions.allowRegistration(user, pass, imgFile));
+      var m = moment();
+      var mf = m.format("YYYY/MM/DD HH:mm");
+      dispatch(actions.allowRegistration(user, pass, imgFile, mf));
     }
   },
   loginUser(user, pass, users) {

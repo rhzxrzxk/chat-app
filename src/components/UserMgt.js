@@ -30,6 +30,7 @@ export default class UserMgt extends React.Component {
                   <li key={i}>ユーザー名：{item["user"]}</li>
                   <li key={i}>パスワード：{item["pass"]}</li>
                   <li key={i}>画像ファイル：{item["imgFile"]}</li>
+                  <li key={i}>ユーザー登録日時：{item["moment"]}</li>
                 </div>
               )
             })

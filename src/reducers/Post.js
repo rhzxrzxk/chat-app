@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
     case 'ADD_POST':
       return {
         ...state,
-        posts: state.posts.concat([{"post":action.payload.post, "currentUser":action.payload.currentUser}]),
+        posts: state.posts.concat([{"post":action.payload.post, "currentUser":action.payload.currentUser, "imgFile":action.payload.imgFile, "moment":action.payload.mf}]),
         post: '',
       };
 

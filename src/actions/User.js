@@ -27,13 +27,14 @@ export const denyRegistration = () => (
   }
 });
 
-export const allowRegistration = (user, pass, imgFile) => (
+export const allowRegistration = (user, pass, imgFile, mf) => (
   {
   type: 'ALLOW_RESISTRATION',
   payload: {
     user,
     pass,
     imgFile,
+    mf
   }
 });
 

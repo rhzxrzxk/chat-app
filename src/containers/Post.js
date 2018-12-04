@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Post from '../components/Post';
 import * as actions from '../actions/Post';
+import moment from 'moment';
 
 const mapStateToProps = (state) => ({
   post: state.post.post,
@@ -13,8 +14,10 @@ const mapDispatchToProps = dispatch => ({
   inputPost(post) {
     dispatch(actions.inputPost(post));
   },
-  addPost(post, currentUser) {
-    dispatch(actions.addPost(post, currentUser));
+  addPost(post, currentUser, imgFile) {
+    var m = moment();
+    var mf = m.format("YYYY/MM/DD HH:mm");
+    dispatch(actions.addPost(post, currentUser, imgFile, mf));
   }
 });
 

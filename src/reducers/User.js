@@ -37,7 +37,7 @@ export default (state = initialState, action) => {
     case 'ALLOW_RESISTRATION':
       return {
         ...state,
-        users: state.users.concat([{"user":action.payload.user, "pass":action.payload.pass, "imgFile":action.payload.imgFile}]),
+        users: state.users.concat([{"user":action.payload.user, "pass":action.payload.pass, "imgFile":action.payload.imgFile, "moment":action.payload.mf}]),
         loginStatus: '1',
         currentUser: action.payload.user,
         user: '',

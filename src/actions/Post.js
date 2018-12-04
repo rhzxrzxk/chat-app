@@ -5,11 +5,13 @@ export const inputPost = (post) => ({
   }
 });
 
-export const addPost = (post, currentUser) => (
+export const addPost = (post, currentUser, imgFile, mf) => (
   {
   type: 'ADD_POST',
   payload: {
     post,
-    currentUser
+    currentUser,
+    imgFile,
+    mf
   }
 });
