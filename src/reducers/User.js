@@ -69,6 +69,20 @@ export default (state = initialState, action) => {
         currentUser: '',
       };
 
+    case 'DELETE_OTHERS':
+      return {
+        ...state,
+        users:  action.payload.nextUsers,
+      };
+
+    case 'DELETE_ME':
+      return {
+        ...state,
+        users:  action.payload.nextUsers,
+        loginStatus: '0',
+        currentUser: '',
+      };
+
     default:
       return state;
   }

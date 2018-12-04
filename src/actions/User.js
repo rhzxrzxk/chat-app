@@ -57,3 +57,19 @@ export const logout = () => (
   type: 'LOGOUT',
   payload: {}
 });
+
+export const deleteOthers = (nextUsers) => (
+  {
+  type: 'DELETE_OTHERS',
+  payload: {
+    nextUsers,
+  }
+});
+
+export const deleteMe = (nextUsers) => (
+  {
+  type: 'DELETE_ME',
+  payload: {
+    nextUsers,
+  }
+});

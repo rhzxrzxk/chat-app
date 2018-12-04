@@ -9,17 +9,20 @@ export default class UserMgt extends React.Component {
     var files = e.target.files;
     var image_url = createObjectURL(files[0]);
     this.props.inputImgFile(image_url);
-  }
+  };
 
   render() {
+    var deleteUser = (i) => {
+      this.props.deleteUser(this.props.users, i, this.props.currentUser);
+    };
+
     return(
       <div>
         <h2>新規登録</h2>
         <input type="text" placeholder="ユーザー名" onChange={(e) => this.props.inputUser(e.target.value)} />
         <input type="text" placeholder="パスワード" onChange={(e) => this.props.inputPass(e.target.value)} />
         <input type="file" onChange={this.handleChangeFile} />
-        <Link to="/posts">{<input type="button" value="新規登録" onClick={() => this.props.addUser(this.props.user, this.props.pass, this.props.imgFile, this.props.users)
-        } />}</Link>
+        <Link to="/posts">{<input type="button" value="新規登録" onClick={() => this.props.addUser(this.props.user, this.props.pass, this.props.imgFile, this.props.users)} />}</Link>
 
         <h2>ユーザー一覧</h2>
         <ul>
@@ -31,6 +34,7 @@ export default class UserMgt extends React.Component {
                   <li key={i}>パスワード：{item["pass"]}</li>
                   <li key={i}>画像ファイル：{item["imgFile"]}</li>
                   <li key={i}>ユーザー登録日時：{item["moment"]}</li>
+                  <Link to="/user_mgt">{<input type="button" value="削除" onClick={() => deleteUser(i)} />}</Link>
                 </div>
               )
             })

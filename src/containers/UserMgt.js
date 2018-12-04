@@ -4,10 +4,12 @@ import * as actions from '../actions/User';
 import moment from 'moment';
 
 const mapStateToProps = (state) => ({
-  user: state.user_mgt.user,
-  pass: state.user_mgt.pass,
-  imgFile: state.user_mgt.imgFile,
-  users: state.user_mgt.users,
+  user: state.user.user,
+  pass: state.user.pass,
+  imgFile: state.user.imgFile,
+  users: state.user.users,
+  currentUser: state.user.currentUser,
+  loginStatus: state.user.loginStatus,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -19,6 +21,17 @@ const mapDispatchToProps = dispatch => ({
   },
   inputPass(pass) {
     dispatch(actions.inputPass(pass));
+  },
+  deleteUser(users, i, currentUser) {
+    if (users[i]["user"] === currentUser) {
+      users.splice(i, 1);
+      const nextUsers = users;
+      dispatch(actions.deleteMe(nextUsers));
+    } else {
+      users.splice(i, 1);
+      const nextUsers = users;
+      dispatch(actions.deleteOthers(nextUsers));
+    }
   },
   addUser(user, pass, imgFile, users) {
     const existing = (p, ps) => {
@@ -32,7 +45,7 @@ const mapDispatchToProps = dispatch => ({
       }
       return bool;
     }
-    if (existing(user, users) == true) {
+    if (existing(user, users) === true) {
       dispatch(actions.denyRegistration());
     } else {
       var m = moment();
