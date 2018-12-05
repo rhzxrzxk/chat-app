@@ -6,21 +6,34 @@ export default class Post extends React.Component {
 
   render() {
     return(
-      <div>
+      <div style={{marginTop: 48, padding: 32}}>
         <h2>投稿する</h2>
-        <img src={this.props.imgFile} width="128" height="128"/>
+        <img src={this.props.currentImgFile} width="64" height="64"/>
         <h3>{this.props.currentUser}</h3>
         <input type="text" value={this.props.post} onChange={(e) => this.props.inputPost(e.target.value)} />
-        <input type="button" value="投稿" onClick={() => this.props.addPost(this.props.post, this.props.currentUser, this.props.imgFile)
+        <input type="button" value="投稿" onClick={() => this.props.addPost(this.props.post, this.props.currentUser, this.props.currentImgFile, this.props.imgFile)
         } />
-        <h2>投稿一覧</h2>
-        <ul>
-          {
-            this.props.posts.map(function(item, i) {
-              return (<li key={i}>{["投稿：", item["post"], "：投稿者：", item["currentUser"], "：投稿者のアイコン：", item["imgFile"], "：投稿日時：", item["moment"]]}</li>)
-            })
+        <h2 style={{marginTop: 48}}>投稿一覧</h2>
+        {this.props.posts.map(function(item, i) {
+          if (i>0){
+            return (
+              <div>
+                <div>
+                  <img src={item["currentImgFile"]} width="64" height="64"/>
+                </div>
+                <div>
+                  {item["currentUser"]}
+                </div>
+                <div>
+                  {item["post"]}
+                </div>
+                <div>
+                  {item["moment"]}
+                </div>
+              </div>
+            )
           }
-        </ul>
+        })}
         <Link to="/posts">{<input type="button" value="チャット" />}</Link>
         <Link to="/user_mgt">{<input type="button" value="ユーザー管理" />}</Link>
         <Link to="/logout">{<input type="button" value="ログアウト" />}</Link>

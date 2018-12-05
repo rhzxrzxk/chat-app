@@ -1,6 +1,6 @@
 const initialState = {
   post: '',
-  posts: [{"post":'', "currentUser":''}]
+  posts: [{"post":'', "currentUser":'', "currentImgFile": ''}]
 };
 
 export default (state = initialState, action) => {
@@ -14,7 +14,10 @@ export default (state = initialState, action) => {
     case 'ADD_POST':
       return {
         ...state,
-        posts: state.posts.concat([{"post":action.payload.post, "currentUser":action.payload.currentUser, "imgFile":action.payload.imgFile, "moment":action.payload.mf}]),
+        posts: state.posts.concat([{
+          "post":action.payload.post,
+          "currentUser":action.payload.currentUser, "currentImgFile":action.payload.currentImgFile, "imgFile":action.payload.imgFile,
+        "moment":action.payload.mf}]),
         post: '',
       };
 

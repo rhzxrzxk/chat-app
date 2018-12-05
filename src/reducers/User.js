@@ -5,8 +5,9 @@ const initialState = {
   imgFile: '',
   users: [{"user":'', "pass":'', "imgFile":''}],
   currentUser: '',
-  userMsg: '',
-  passMsg: '',
+  currentImgFile: '',
+  userMsg: 'ユーザー名は1〜10文字でないといけません！',
+  passMsg: 'パスワードは4〜8文字でないといけません！',
   userValidation: true,
   passValidation: true,
 };
@@ -60,6 +61,7 @@ export default (state = initialState, action) => {
         ...state,
         loginStatus: '0',
         currentUser: '',
+        currentImgFile: '',
         userMsg: '',
         userValidation: true,
         passMsg: '',
@@ -72,6 +74,7 @@ export default (state = initialState, action) => {
         users: state.users.concat([{"user":action.payload.user, "pass":action.payload.pass, "imgFile":action.payload.imgFile, "moment":action.payload.mf}]),
         loginStatus: '1',
         currentUser: action.payload.user,
+        currentImgFile: action.payload.imgFile,
         user: '',
         pass: '',
         imgFile: '',
@@ -86,6 +89,7 @@ export default (state = initialState, action) => {
         ...state,
         loginStatus: '1',
         currentUser: action.payload.user,
+        currentImgFile: action.payload.imgFile,
         user: '',
         pass: '',
         imgFile: '',
@@ -96,6 +100,7 @@ export default (state = initialState, action) => {
         ...state,
         loginStatus: '0',
         currentUser: '',
+        currentImgFile: '',
       };
 
     case 'LOGOUT':
@@ -103,6 +108,7 @@ export default (state = initialState, action) => {
         ...state,
         loginStatus: '0',
         currentUser: '',
+        currentImgFile: '',
       };
 
     case 'DELETE_OTHERS':
@@ -117,6 +123,7 @@ export default (state = initialState, action) => {
         users:  action.payload.nextUsers,
         loginStatus: '0',
         currentUser: '',
+        currentImgFile: '',
       };
 
     default:

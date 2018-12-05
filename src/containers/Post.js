@@ -7,6 +7,7 @@ const mapStateToProps = (state) => ({
   post: state.post.post,
   posts: state.post.posts,
   currentUser: state.user.currentUser,
+  currentImgFile:state.user.currentImgFile,
   imgFile:state.user.imgFile,
 });
 
@@ -14,10 +15,10 @@ const mapDispatchToProps = dispatch => ({
   inputPost(post) {
     dispatch(actions.inputPost(post));
   },
-  addPost(post, currentUser, imgFile) {
+  addPost(post, currentUser, currentImgFile, imgFile) {
     var m = moment();
     var mf = m.format("YYYY/MM/DD HH:mm");
-    dispatch(actions.addPost(post, currentUser, imgFile, mf));
+    dispatch(actions.addPost(post, currentUser, currentImgFile, imgFile, mf));
   }
 });
 

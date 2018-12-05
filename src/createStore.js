@@ -4,7 +4,6 @@ import {
   applyMiddleware
 } from 'redux';
 import logger from 'redux-logger';
-import thunk from 'redux-thunk';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import * as reducers from './reducers';
 
@@ -26,7 +25,6 @@ export default function createStore(history) {
     savedState ? savedState : reducer(undefined, {type: 'INIT'}),
     applyMiddleware(
       logger,
-      thunk,
       storageMiddleware,
       routerMiddleware(history)
     )

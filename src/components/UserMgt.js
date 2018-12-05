@@ -13,12 +13,12 @@ export default class UserMgt extends React.Component {
 
   render() {
     var deleteUser = (i) => {
-      this.props.deleteUser(this.props.users, i, this.props.currentUser);
+      this.props.deleteUser(this.props.users, i, this.props.currentUser, this.props.currentImgFile);
     };
 
     return(
-      <div>
-      <h2>新規登録</h2>
+      <div style={{marginTop: 48, padding: 32}}>
+        <h2>新規登録</h2>
         <div>
           <input type="text" placeholder="ユーザー名" onChange={(e) => this.props.inputUser(e.target.value)} />
         </div>
@@ -33,25 +33,29 @@ export default class UserMgt extends React.Component {
           <input type="file" onChange={this.handleChangeFile} />
         </div>
         <div>
-          <Link to="/posts">{<input type="button" value="新規登録" onClick={() => this.props.addUser(this.props.user, this.props.pass, this.props.imgFile, this.props.users)} />}</Link>
+          <Link to="/posts">{<input type="button" value="新規登録" onClick={() => this.props.addUser(this.props.user, this.props.pass, this.props.imgFile, this.props.users, this.props.userMsg, this.props.passMsg, this.props.userValidation, this.props.passValidation)} />}</Link>
         </div>
 
-        <h2>ユーザー一覧</h2>
-        <ul>
-          {
-            this.props.users.map(function(item, i) {
-              return (
+        <h2 style={{marginTop: 48}}>ユーザー一覧</h2>
+
+        {this.props.users.map(function(item, i) {
+          if (i>0){
+            return (
+              <div>
                 <div>
-                  <li key={i}>ユーザー名：{item["user"]}</li>
-                  <li key={i}>パスワード：{item["pass"]}</li>
-                  <li key={i}>画像ファイル：{item["imgFile"]}</li>
-                  <li key={i}>ユーザー登録日時：{item["moment"]}</li>
-                  <Link to="/user_mgt">{<input type="button" value="削除" onClick={() => deleteUser(i)} />}</Link>
+                  <img src={item["imgFile"]} width="64" height="64"/>
                 </div>
-              )
-            })
+                <div>
+                  {item["user"]}
+                </div>
+                <div>
+                  {item["moment"]}
+                </div>
+                <Link to="/user_mgt">{<input type="button" value="削除" onClick={() => deleteUser(i)} />}</Link>
+              </div>
+            )
           }
-        </ul>
+        })}
         <Link to="/posts">{<input type="button" value="チャット" />}</Link>
         <Link to="/user_mgt">{<input type="button" value="ユーザー管理" />}</Link>
         <Link to="/logout">{<input type="button" value="ログアウト" />}</Link>

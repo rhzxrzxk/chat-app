@@ -13,7 +13,7 @@ export default class User extends React.Component {
 
   render() {
     return(
-      <div>
+      <div style={{marginTop: 48, padding: 32}}>
         <h2>新規登録</h2>
         <div>
           <input type="text" placeholder="ユーザー名" onChange={(e) => this.props.inputUser(e.target.value)} />
@@ -32,7 +32,7 @@ export default class User extends React.Component {
           <Link to="/posts">{<input type="button" value="新規登録" onClick={() => this.props.addUser(this.props.user, this.props.pass, this.props.imgFile, this.props.users, this.props.userMsg, this.props.passMsg, this.props.userValidation, this.props.passValidation)} />}</Link>
         </div>
 
-        <h2>ログイン</h2>
+        <h2 style={{marginTop: 48}}>ログイン</h2>
         <div>
           <input type="text" placeholder="ユーザー名" onChange={(e) => this.props.inputUser(e.target.value)} />
         </div>

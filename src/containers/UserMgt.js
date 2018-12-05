@@ -9,6 +9,7 @@ const mapStateToProps = (state) => ({
   imgFile: state.user.imgFile,
   users: state.user.users,
   currentUser: state.user.currentUser,
+  currentImgFile: state.user.currentImgFile,
   loginStatus: state.user.loginStatus,
   userMsg: state.user.userMsg,
   userValidation: state.user.userValidation,
@@ -26,7 +27,7 @@ const mapDispatchToProps = dispatch => ({
   inputPass(pass) {
     dispatch(actions.inputPass(pass));
   },
-  deleteUser(users, i, currentUser) {
+  deleteUser(users, i, currentUser, currentImgFile) {
     if (users[i]["user"] === currentUser) {
       users.splice(i, 1);
       const nextUsers = users;
