@@ -47,11 +47,13 @@ const mapDispatchToProps = dispatch => ({
     }
   },
   loginUser(user, pass, users) {
+    var index
     const existing = (p, q, ps) => {
       let bool
       for (var i=0; i<ps.length; i++) {
         if (ps[i]["user"] === p && ps[i]["pass"] === q) {
           bool = true;
+          index = i
           break;
         }
         bool = false;
@@ -59,7 +61,7 @@ const mapDispatchToProps = dispatch => ({
       return bool;
     }
     if (existing(user, pass, users) === true) {
-      dispatch(actions.allowLogin(user));
+      dispatch(actions.allowLogin(users, index));
     } else {
       dispatch(actions.denyLogin());
     }

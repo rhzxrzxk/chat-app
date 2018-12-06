@@ -8,7 +8,7 @@ export default class Post extends React.Component {
     return(
       <div style={{marginTop: 48, padding: 32}}>
         <h2>投稿する</h2>
-        <img src={this.props.currentImgFile} width="64" height="64"/>
+        <img src={this.props.currentImgFile} height="88"/>
         <h3>{this.props.currentUser}</h3>
         <input type="text" value={this.props.post} onChange={(e) => this.props.inputPost(e.target.value)} />
         <input type="button" value="投稿" onClick={() => this.props.addPost(this.props.post, this.props.currentUser, this.props.currentImgFile, this.props.imgFile)
@@ -17,9 +17,9 @@ export default class Post extends React.Component {
         {this.props.posts.map(function(item, i) {
           if (i>0){
             return (
-              <div>
+              <div style={{marginBottom: 36}}>
                 <div>
-                  <img src={item["currentImgFile"]} width="64" height="64"/>
+                  <img src={item["currentImgFile"]} height="88"/>
                 </div>
                 <div>
                   {item["currentUser"]}

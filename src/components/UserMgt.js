@@ -41,9 +41,9 @@ export default class UserMgt extends React.Component {
         {this.props.users.map(function(item, i) {
           if (i>0){
             return (
-              <div>
+              <div style={{marginBottom: 36}}>
                 <div>
-                  <img src={item["imgFile"]} width="64" height="64"/>
+                  <img src={item["imgFile"]} height="88"/>
                 </div>
                 <div>
                   {item["user"]}

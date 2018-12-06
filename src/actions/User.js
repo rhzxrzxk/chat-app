@@ -38,11 +38,12 @@ export const allowRegistration = (user, pass, imgFile, mf) => (
   }
 });
 
-export const allowLogin = (user) => (
+export const allowLogin = (users, index) => (
   {
   type: 'ALLOW_LOGIN',
   payload: {
-    user,
+    users,
+    index
   }
 });
 

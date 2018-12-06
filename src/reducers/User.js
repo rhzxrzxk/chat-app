@@ -88,8 +88,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loginStatus: '1',
-        currentUser: action.payload.user,
-        currentImgFile: action.payload.imgFile,
+        currentUser: action.payload.users[action.payload.index]["user"],
+        currentImgFile: action.payload.users[action.payload.index]["imgFile"],
         user: '',
         pass: '',
         imgFile: '',
