@@ -26,7 +26,7 @@ export default class UserMgt extends React.Component {
           <h6>{this.props.userMsg}</h6>
         </div>
         <div>
-          <input type="text" placeholder="パスワード" onChange={(e) => this.props.inputPass(e.target.value)} />
+          <input type="password" placeholder="パスワード" onChange={(e) => this.props.inputPass(e.target.value)} />
         </div>
           <h6>{this.props.passMsg}</h6>
         <div>

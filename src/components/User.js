@@ -22,7 +22,7 @@ export default class User extends React.Component {
           <h6>{this.props.userMsg}</h6>
         </div>
         <div>
-          <input type="text" placeholder="パスワード" onChange={(e) => this.props.inputPass(e.target.value)} />
+          <input type="password" placeholder="パスワード" onChange={(e) => this.props.inputPass(e.target.value)} />
         </div>
           <h6>{this.props.passMsg}</h6>
         <div>
@@ -37,7 +37,7 @@ export default class User extends React.Component {
           <input type="text" placeholder="ユーザー名" onChange={(e) => this.props.inputUser(e.target.value)} />
         </div>
         <div>
-          <input type="text" placeholder="パスワード" onChange={(e) => this.props.inputPass(e.target.value)} />
+          <input type="password" placeholder="パスワード" onChange={(e) => this.props.inputPass(e.target.value)} />
         </div>
         <div>
           <Link to="/posts">{<input type="button" value="ログイン" onClick={() => this.props.loginUser(this.props.user, this.props.pass, this.props.users)} />}</Link>
