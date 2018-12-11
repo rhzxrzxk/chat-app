@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropType from 'prop-types';
 
 var createObjectURL = (window.URL || window.webkitURL).createObjectURL || window.createObjectURL;
 
