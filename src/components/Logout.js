@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default class Logout extends React.Component {
   render() {
     return(
-      <div style={{marginTop: 48, padding: 32}}>
+      <div style={{padding: 32}}>
         <h2>ログアウト</h2>
         <div style={{padding: 64}}>
           <Link to="/">{<input type="button" value="ログアウト" onClick={() => this.props.logout()} />}</Link>

@@ -5,7 +5,7 @@ export default class Post extends React.Component {
 
   render() {
     return(
-      <div style={{marginTop: 48, padding: 32}}>
+      <div style={{padding: 32}}>
         <h2>投稿する</h2>
         <img src={this.props.currentImgFile} height="88"/>
         <h3>{this.props.currentUser}</h3>

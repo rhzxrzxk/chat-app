@@ -16,7 +16,7 @@ export default class UserMgt extends React.Component {
     };
 
     return(
-      <div style={{marginTop: 48, padding: 32}}>
+      <div style={{padding: 32}}>
         <h2>新規登録</h2>
         <div>
           <input type="text" placeholder="ユーザー名" onChange={(e) => this.props.inputUser(e.target.value)} />
